@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MemoryGameModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MemoryGameEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Feedbacks" EntityType="MemoryGameModel.Feedback" />
+    <EntitySet Name="Images" EntityType="MemoryGameModel.Image" />
+    <EntitySet Name="Players" EntityType="MemoryGameModel.Player" />
+    <EntitySet Name="Results" EntityType="MemoryGameModel.Result" />
+    <AssociationSet Name="FK_Feedbacks_Players" Association="MemoryGameModel.FK_Feedbacks_Players">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Results_Players" Association="MemoryGameModel.FK_Results_Players">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="Result" EntitySet="Results" />
+    </AssociationSet>
+    <EntitySet Name="ContactUsForms" EntityType="MemoryGameModel.ContactUsForm" />
+    <AssociationSet Name="FK_ContactUsForms_Players" Association="MemoryGameModel.FK_ContactUsForms_Players">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="ContactUsForm" EntitySet="ContactUsForms" />
+    </AssociationSet>
+    <FunctionImport Name="GetTopScores" ReturnType="Collection(MemoryGameModel.GetTopScores_Result)" />
+    <FunctionImport Name="GetLastFeedbacks" ReturnType="Collection(MemoryGameModel.GetLastFeedbacks_Result)" />
+    <FunctionImport Name="GetFeedbacks" ReturnType="Collection(MemoryGameModel.GetFeedbacks_Result)" />
+    <EntitySet Name="ContentItems" EntityType="MemoryGameModel.ContentItem" />
+    <EntitySet Name="ImagesTypes" EntityType="MemoryGameModel.ImagesType" />
+    <AssociationSet Name="FK_Images_ImagesTypes" Association="MemoryGameModel.FK_Images_ImagesTypes">
+      <End Role="ImagesType" EntitySet="ImagesTypes" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+    <FunctionImport Name="GetResults" ReturnType="Collection(MemoryGameModel.GetResults_Result)" />
+  </EntityContainer>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackId" />
+    </Key>
+    <Property Name="FeedbackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlayerId" Type="Int32" Nullable="false" />
+    <Property Name="FeedbackDate" Type="DateTime" Precision="3" />
+    <Property Name="FeedbackText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Player" Relationship="MemoryGameModel.FK_Feedbacks_Players" FromRole="Feedback" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImageTypeId" Type="Int32" />
+    <NavigationProperty Name="ImagesType" Relationship="MemoryGameModel.FK_Images_ImagesTypes" FromRole="Image" ToRole="ImagesType" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="PlayerId" />
+    </Key>
+    <Property Name="PlayerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Feedbacks" Relationship="MemoryGameModel.FK_Feedbacks_Players" FromRole="Player" ToRole="Feedback" />
+    <NavigationProperty Name="Results" Relationship="MemoryGameModel.FK_Results_Players" FromRole="Player" ToRole="Result" />
+    <NavigationProperty Name="ContactUsForms" Relationship="MemoryGameModel.FK_ContactUsForms_Players" FromRole="Player" ToRole="ContactUsForm" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="ResultId" />
+    </Key>
+    <Property Name="ResultId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlayerId" Type="Int32" Nullable="false" />
+    <Property Name="GameDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Duration" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="NumberOfSteps" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="MemoryGameModel.FK_Results_Players" FromRole="Result" ToRole="Player" />
+  </EntityType>
+  <Association Name="FK_Feedbacks_Players">
+    <End Type="MemoryGameModel.Player" Role="Player" Multiplicity="1" />
+    <End Type="MemoryGameModel.Feedback" Role="Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Results_Players">
+    <End Type="MemoryGameModel.Player" Role="Player" Multiplicity="1" />
+    <End Type="MemoryGameModel.Result" Role="Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ContactUsForm">
+    <Key>
+      <PropertyRef Name="ContactUsId" />
+    </Key>
+    <Property Name="ContactUsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PlayerId" Type="Int32" />
+    <NavigationProperty Name="Player" Relationship="MemoryGameModel.FK_ContactUsForms_Players" FromRole="ContactUsForm" ToRole="Player" />
+  </EntityType>
+  <Association Name="FK_ContactUsForms_Players">
+    <End Type="MemoryGameModel.Player" Role="Player" Multiplicity="0..1" />
+    <End Type="MemoryGameModel.ContactUsForm" Role="ContactUsForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="ContactUsForm">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetTopScores_Result">
+    <Property Type="Int32" Name="ResultId" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="GameDate" Nullable="false" Precision="23" />
+    <Property Type="Time" Name="Duration" Nullable="false" />
+    <Property Type="Int32" Name="NumberOfSteps" Nullable="false" />
+    <Property Type="Time" Name="Duration1" Nullable="false" />
+    <Property Type="Int32" Name="NumberOfSteps1" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetLastFeedbacks_Result">
+    <Property Type="String" Name="FeedbackText" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="FeedbackDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="GetFeedbacks_Result">
+    <Property Type="Int32" Name="FeedbackId" Nullable="false" />
+    <Property Type="String" Name="FeedbackText" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="FeedbackDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="ContentItem">
+    <Key>
+      <PropertyRef Name="ConteneId" />
+    </Key>
+    <Property Name="ConteneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContetntType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DisplayInSite" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ImagesType">
+    <Key>
+      <PropertyRef Name="ImageTypeId" />
+    </Key>
+    <Property Name="ImageTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageTypeDescription" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Images" Relationship="MemoryGameModel.FK_Images_ImagesTypes" FromRole="ImagesType" ToRole="Image" />
+  </EntityType>
+  <Association Name="FK_Images_ImagesTypes">
+    <End Type="MemoryGameModel.ImagesType" Role="ImagesType" Multiplicity="0..1" />
+    <End Type="MemoryGameModel.Image" Role="Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImagesType">
+        <PropertyRef Name="ImageTypeId" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="ImageTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetResults_Result">
+    <Property Type="Int32" Name="ResultId" Nullable="false" />
+    <Property Type="Int32" Name="PlayerId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="GameDate" Nullable="false" Precision="23" />
+    <Property Type="Time" Name="Duration" Nullable="false" />
+    <Property Type="Int32" Name="NumberOfSteps" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MemoryGameModelStoreContainer" CdmEntityContainer="MemoryGameEntities">
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="MemoryGameModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedbacks">
+          <ScalarProperty Name="FeedbackText" ColumnName="FeedbackText" />
+          <ScalarProperty Name="FeedbackDate" ColumnName="FeedbackDate" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="MemoryGameModel.Image">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="ImageTypeId" ColumnName="ImageTypeId" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="MemoryGameModel.Player">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Results">
+      <EntityTypeMapping TypeName="MemoryGameModel.Result">
+        <MappingFragment StoreEntitySet="Results">
+          <ScalarProperty Name="NumberOfSteps" ColumnName="NumberOfSteps" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="GameDate" ColumnName="GameDate" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactUsForms">
+      <EntityTypeMapping TypeName="MemoryGameModel.ContactUsForm">
+        <MappingFragment StoreEntitySet="ContactUsForms">
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ContactUsId" ColumnName="ContactUsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetTopScores" FunctionName="MemoryGameModel.Store.GetTopScores">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MemoryGameModel.GetTopScores_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="GameDate" ColumnName="GameDate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="NumberOfSteps" ColumnName="NumberOfSteps" />
+          <ScalarProperty Name="Duration1" ColumnName="Duration1" />
+          <ScalarProperty Name="NumberOfSteps1" ColumnName="NumberOfSteps1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetLastFeedbacks" FunctionName="MemoryGameModel.Store.GetLastFeedbacks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MemoryGameModel.GetLastFeedbacks_Result">
+          <ScalarProperty Name="FeedbackText" ColumnName="FeedbackText" />
+          <ScalarProperty Name="FeedbackDate" ColumnName="FeedbackDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetFeedbacks" FunctionName="MemoryGameModel.Store.GetFeedbacks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MemoryGameModel.GetFeedbacks_Result">
+          <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+          <ScalarProperty Name="FeedbackText" ColumnName="FeedbackText" />
+          <ScalarProperty Name="FeedbackDate" ColumnName="FeedbackDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ContentItems">
+      <EntityTypeMapping TypeName="MemoryGameModel.ContentItem">
+        <MappingFragment StoreEntitySet="ContentItems">
+          <ScalarProperty Name="DisplayInSite" ColumnName="DisplayInSite" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="ContentText" ColumnName="ContentText" />
+          <ScalarProperty Name="ContetntType" ColumnName="ContetntType" />
+          <ScalarProperty Name="ConteneId" ColumnName="ConteneId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagesTypes">
+      <EntityTypeMapping TypeName="MemoryGameModel.ImagesType">
+        <MappingFragment StoreEntitySet="ImagesTypes">
+          <ScalarProperty Name="ImageTypeDescription" ColumnName="ImageTypeDescription" />
+          <ScalarProperty Name="ImageTypeId" ColumnName="ImageTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetResults" FunctionName="MemoryGameModel.Store.GetResults">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MemoryGameModel.GetResults_Result">
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="GameDate" ColumnName="GameDate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="NumberOfSteps" ColumnName="NumberOfSteps" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
