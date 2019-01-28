@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+body,html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.pageTitle{
+    font-size: 35px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #fc9604;
+    font-weight: bold;
+    margin: 10px 20px;
+    direction: rtl;
+}
+.SuccessMsg{
+    box-sizing: content-box;
+    border-top:2px solid #fc9604;
+    text-align: center;
+    color: green;
+    font-weight: bold;   
+    margin-top: 10px;
+}
+.ErrorMsg{
+    box-sizing: content-box;
+    border-top:2px solid #f83d3d;
+    color: red;
+    font-weight: bold;   
+}
