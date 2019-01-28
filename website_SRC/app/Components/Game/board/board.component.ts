@@ -171,7 +171,7 @@ export class BoardComponent implements OnInit {
         setTimeout(() => {
             this.flipOrHideTwoCards(x);
             this.initSelection();
-        }, 250);
+        }, 1000);
     }
 
     //update Selection array with selection
