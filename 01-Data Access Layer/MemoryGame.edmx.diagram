@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="73f459a28f4c4af5b54149a3007129df" Name="Diagram1">
+        <EntityTypeShape EntityType="MemoryGameModel.Feedback" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="MemoryGameModel.Image" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MemoryGameModel.Player" Width="1.5" PointX="0.75" PointY="2.25" />
+        <EntityTypeShape EntityType="MemoryGameModel.Result" Width="1.5" PointX="3" PointY="1.125" />
+        <AssociationConnector Association="MemoryGameModel.FK_Feedbacks_Players" />
+        <AssociationConnector Association="MemoryGameModel.FK_Results_Players" />
+        <EntityTypeShape EntityType="MemoryGameModel.ContactUsForm" Width="1.5" PointX="3" PointY="7.25" />
+        <AssociationConnector Association="MemoryGameModel.FK_ContactUsForms_Players" />
+        <EntityTypeShape EntityType="MemoryGameModel.ContentItem" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MemoryGameModel.ImagesType" Width="1.5" PointX="3.5" PointY="10.875" />
+        <AssociationConnector Association="MemoryGameModel.FK_Images_ImagesTypes" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
