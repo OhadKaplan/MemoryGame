@@ -1,0 +1,13 @@
+<BR>
+<div *ngIf="playerName!=''">שלום {{playerName}} אנא רשום תגובה נחמדה</div>
+<form #feedBackForm="ngForm" (ngSubmit)="postFeedback(feedBackForm)" autocomplete="off">
+    <div class="form-group">
+        <textarea class="form-control" rows="5" cols="50" name="fbText" [(ngModel)]="fbText" placeholder="פירגון..."
+            required (click)="clearMessage()"></textarea>
+        <span *ngIf=""></span>
+        <BR>
+        <button class="btn btn-warning" [disabled]="feedBackForm.form.invalid">פרסום הפירגון</button><span class="Message">{{screenMessage}}</span>
+        
+    </div>
+</form>
+<BR> 

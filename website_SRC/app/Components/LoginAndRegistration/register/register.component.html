@@ -1,0 +1,50 @@
+<BR>
+    <div class="pageTitle text-right">הרשמה</div>  
+    <div class="h5 text-right titleText">על מנת להינות מהמשחק - יש להרשם באתר - יש להשלים את כל המידע בטופס ההרשמה</div>
+<br>
+<div class="main">
+    <form #registerForm="ngForm" (ngSubmit)="addNewPlayer()" autocomplete="off" class="form-group">
+        <div>
+            <input type="text" name="fullname" [(ngModel)]="player.fullName" placeholder="שם מלא" autofocus required
+                #fullname="ngModel" class="form-control text-right" maxlength="25">
+            <span *ngIf="fullname.dirty && fullname.invalid" class="invalidInput">יש להקליד שם מלא</span>
+            <BR>
+        </div>
+        <div>
+
+            <input type="text" name="username" [(ngModel)]="player.userName" placeholder=" שם משתמש - עד 15 תוים באנגלית"
+                required #username="ngModel" class="form-control text-right" maxlength="15" (focusout)="checkIfUserNameExist(username.value)">
+            <span *ngIf="username.dirty && username.invalid" class="invalidInput">שם משתמש באנגלית - עד 15 תוים ללא
+                רווחים
+                וללא תוים</span>
+            <span *ngIf="!chekIfUserNameinEnglish(username.value)" class="invalidInput"><BR> שם משתמש באנגלית - אותיות
+                בלבד</span>
+            <span *ngIf="userNameError" class="invalidInput"><BR> שם משתמש תפוס</span>
+            <BR>
+        </div>
+        <div>
+
+            <input type="email" name="email" [(ngModel)]="player.email" placeholder=" כתובת דוא''ל" required email
+                #email="ngModel" class="form-control text-right">
+            <span *ngIf="email.dirty && email.invalid" class="invalidInput">יש להקליד כתובת מייל תקינה</span>
+            <BR>
+        </div>
+        <div>
+
+            <input type="password" name="pass" [(ngModel)]="player.pW" placeholder="סיסמא" required #pass="ngModel"
+                class="form-control text-right"  minlength="6" >
+            <BR>
+            <span *ngIf="pass.dirty && pass.invalid" class="invalidInput">סיסמא באנגלית - מינימום 6 תווים</span>
+            <span *ngIf="!chekIfPasswordInEnglish(pass.value)" class="invalidInput">אין להשתמש בסיסמא בתווים בעברית</span>
+        </div>
+        <div>
+            <input type="password" name="pass2Input" [(ngModel)]="password" placeholder="אימות סיסמא" required class="form-control text-right"
+                #pass2Input (keyup)="onPasswordKeyUp(pass2Input.value)" [ngStyle]="{'border':'2px solid '+ borderColor}" minlength="6">
+            <BR>
+            <span *ngIf="pass2Input.dirty && pass2Input.invalid" class="invalidInput">סימא באנגלית - מינימום 6 תווים</span>
+        </div>
+        <div>
+            <button class="btn btn-warning" [disabled]="registerForm.form.invalid">אישור הרשמה</button>
+        </div>
+    </form>
+</div>

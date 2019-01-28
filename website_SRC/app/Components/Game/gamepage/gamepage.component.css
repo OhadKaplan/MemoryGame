@@ -1,0 +1,23 @@
+*{
+    text-align: center;
+}
+.loginToPlay{
+    color:rgb(66, 66, 238);
+    border-bottom: 2px solid rgb(66, 66, 238);
+}
+.textDir{
+    direction: rtl;
+}
+.image{
+    float: right;
+    position: relative;
+    right: 10px;
+    top: 6px;
+    background: transparent;
+}
+img{
+    width: 40%;
+}
+.status{
+    margin: 0;
+}

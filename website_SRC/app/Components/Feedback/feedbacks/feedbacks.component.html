@@ -1,0 +1,19 @@
+<div class="text-right">
+
+    <div class="text-right" *ngIf="isLoggedin()">
+        <app-newfeedback></app-newfeedback>
+    </div>
+    <div class="text-right" *ngIf="!isLoggedin()">
+        <br>
+        <BR>
+            <div class="pageTitle text-right">הארות והמלצות</div>  
+           
+        <br>        
+            <span class="h5 text-right noLoginText" >נשמח מאוד לפרגון והצעות לשיפור - לכן יש <span (click)="displayLogin()" class="loginToPlay">להתחבר למערכת</span></span>
+        <app-login [showLogin]="showLogin"></app-login>
+    </div>
+    <br>
+    <div>
+        <app-feedbackslist></app-feedbackslist>
+    </div>
+</div>

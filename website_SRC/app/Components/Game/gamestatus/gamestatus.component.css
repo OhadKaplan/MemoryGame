@@ -1,0 +1,20 @@
+*{
+    text-align: center;
+}
+.container{
+    text-align: right;
+}
+.status{
+    font-weight: bold;
+    color: #fc9604;;
+    background-color: rgb(248, 243, 243);
+    width:50%;
+    font-size: 20px;
+    direction: rtl;
+}
+.Result{
+    font-weight: bold;
+    color: #fc9604;
+    font-size: 20px;
+    direction: rtl;
+}

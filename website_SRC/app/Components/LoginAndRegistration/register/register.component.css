@@ -1,0 +1,20 @@
+.titleText{
+    margin: 20px;   
+}
+.main{
+    text-align: center;
+    margin:auto;
+    direction: rtl;
+    width: 75%;
+    
+}
+.invalidInput{
+    font-weight: bold;
+    color: red;
+}
+.registerOk{
+    background-color: lightgreen;
+    border: 1 solid green;
+    font-weight: bold;    
+}
+

@@ -1,0 +1,20 @@
+<BR>
+<div class="main">
+    <div class="pageTitle text-right">משחק הזיכרון</div>
+    <div *ngIf="!isLoggedin()">
+        <div class="image"><img [src]="garfeildImgFullPath"></div>
+        <div class="h5 text-right textDir">
+            רוצים לשחק במשחק הזיכרון?...
+            <BR><BR>
+            באו והשיגו תוצאה טובה יותר - <span (click)="displayLogin()" class="loginToPlay">התחברו למערכת </span>ושברו
+            את השיא.
+        </div>
+        <app-results [hideTitle]="true"></app-results><BR>
+        <app-login [showLogin]="showLogin"></app-login>
+        <app-carouselbanner></app-carouselbanner>
+    </div>
+    <div *ngIf="isLoggedin()" class="status">
+        <app-gamestatus [gameSteps]="steps" [gameStatus]="gameStatus"></app-gamestatus>
+        <app-board (stepsCounterEmitter)="onMovesUpdate($event)" (gameStatus)="onSetGameStatus($event)"></app-board>
+    </div>
+</div>

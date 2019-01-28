@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    height: 100%;    
+    direction: rtl;
+    
+}
+main{
+    border-bottom: 2px black solid;
+}
+div{
+    text-align: center;
+   
+}
+div:nth-child(1).maintext{ 
+    padding: 30px;
+    text-align: right;
+    font-size: 20px;    
+    color: rgb(26, 26, 132);
+}
+.toplist{
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid black;
+}

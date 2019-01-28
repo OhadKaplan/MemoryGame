@@ -1,0 +1,12 @@
+<div *ngIf="load" class="text-center">
+    <div class="board" [ngStyle]="{
+    'background-image':'url('+backImg+')'    
+}">
+        <div class="boardRow" *ngFor="let m of cardsMatrix;let i=index ;">
+            <div class="boardCol" *ngFor="let mm of m ;let j=index ;" [ngStyle]="{'background-color':cardBackground,'opacity':getHidden(i,j)}">
+                <img [src]="getImage(i,j)" (click)="clickOnCard(i,j)" >
+            </div>
+        </div>
+    </div>
+</div>
+

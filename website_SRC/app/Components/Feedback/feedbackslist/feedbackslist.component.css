@@ -1,0 +1,11 @@
+div{
+    margin-right: 10px;
+    margin-left: 10px;
+    direction:rtl;
+}
+.title{
+    text-align: right;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(3, 78, 6)
+}

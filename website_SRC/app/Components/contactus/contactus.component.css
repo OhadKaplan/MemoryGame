@@ -1,0 +1,13 @@
+.main{
+    text-align: center;
+    direction: rtl;
+    width: 75%;
+    margin: auto;
+}
+div{
+    margin: 10px;
+}
+.invalidInput{
+    font-weight: bold;
+    color: red;
+} 

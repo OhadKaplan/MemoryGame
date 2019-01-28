@@ -1,0 +1,49 @@
+<BR>
+    <div class="pageTitle text-right">יצירת קשר</div>  
+   <div class="h5 text-right">באפשרותך לשלוח לנו הודעה אישית באמצעות טופס זה</div>
+<br>
+<div *ngIf="diplaySuccessMsg" class="SuccessMsg">
+    טופס נשלח בהצלחה
+</div>
+<div *ngIf="diplayErrorMsg" class="ErrorMsg">
+        תקלה בשליחת הטופס  - נסו שוב מאוחר יותר
+</div>
+<div class="main">
+    <form #contactUsForm="ngForm" (ngSubmit)="sendContactToAdmin(contactUsForm)" autocomplete="off" class="form-group">
+        <div>
+            <input type="text" name="firstName" [(ngModel)]="contactUs.fName" placeholder="שם פרטי" autofocus required
+                #firstName="ngModel" class="form-control text-right" maxlength="25" [value]="contactUs.fName">
+            <span *ngIf="firstName.dirty && firstName.invalid" class="invalidInput">יש להשלים שם פרטי</span>
+            <BR>
+        </div>
+        <div>
+            <input type="text" name="lastName" [(ngModel)]="contactUs.lName" placeholder="שם משפחה" required #lastName="ngModel"
+                class="form-control text-right" maxlength="25" [value]="contactUs.lName">
+            <span *ngIf="lastName.dirty && lastName.invalid" class="invalidInput">יש להשלים שם משפחה</span>
+            <BR>
+        </div>
+        <div>
+            <input type="email" name="email" [(ngModel)]="contactUs.email" placeholder=" כתובת דוא''ל" required email
+                #email="ngModel" class="form-control text-right" >
+            <span *ngIf="email.dirty && email.invalid" class="invalidInput">יש להקליד כתובת מייל תקינה</span>
+            <BR>
+        </div>
+        <div>
+            <input type="text" name="phoneNum" [(ngModel)]="contactUs.phone" placeholder="טלפון או נייד" required
+                #phoneNum="ngModel" class="form-control text-right" maxlength="25" (keyup)="chekForPhonePattern(phoneNum.value)">
+            <span *ngIf="phoneNum.dirty && phoneNum.invalid" class="invalidInput">יש להזין מספר טלפון</span>
+            <span *ngIf="phoneNum.dirty &&!chekForPhonePattern(phoneNum.value)" class="invalidInput"><BR>מספר טלפון לא תקין</span>
+            <BR>
+        </div>
+        <div>
+            <textarea name="message" rows="5" [(ngModel)]="contactUs.message" placeholder="תוכן ההודעה" required #message="ngModel"
+                class="form-control text-right"></textarea>
+            <span *ngIf="message.dirty && message.invalid" class="invalidInput">יש להשלים את תוכן ההודעה</span>
+            <BR>
+        </div>
+        <div>
+            <button class="btn btn-warning" [disabled]="contactUsForm.form.invalid">שליחה</button>
+        </div>
+    </form>
+</div>
+

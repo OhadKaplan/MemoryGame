@@ -1,0 +1,10 @@
+.main{
+    margin:auto;
+    width: 95%;
+    direction: rtl;
+    text-align: right;
+}
+
+.titleText{    
+    margin-right: 15px;
+}

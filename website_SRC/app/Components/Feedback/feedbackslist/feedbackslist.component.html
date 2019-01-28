@@ -1,0 +1,14 @@
+<div class="table-responsive-sm">
+    <table class="table table-borderedu table-striped" >
+        <tr class="table-warning">
+            <th>תאריך</th>
+            <th>שחקן</th>
+            <th> </th>
+        </tr>
+        <tr *ngFor="let f of feedbacks">
+            <td>{{f.createDate | date:"dd/MM/yy"}}</td>
+            <td>{{f.playerName}}</td>
+            <td class="text-right">{{f.text}}</td>
+        </tr>
+    </table>
+</div>

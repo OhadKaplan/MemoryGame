@@ -1,0 +1,13 @@
+<div class="Loggedin">
+    <table>
+        <tr>
+            <td *ngIf="!isLoggedin()"><a routerLink="/Register"><b>הרשמה</b></a> | </td>
+            <td *ngIf="isLoggedin()">
+                <app-user-info></app-user-info>
+            </td>
+            <td *ngIf="!isLoggedin()"><button class="btn btn-secondary" (click)="clickButton()">התחברות</button></td>
+            <td *ngIf="isLoggedin()"><button class="btn btn-secondary" (click)="clickButton()">יציאה</button></td>
+        </tr>
+    </table>
+    <app-login [showLogin]="showLogin"></app-login>
+</div>

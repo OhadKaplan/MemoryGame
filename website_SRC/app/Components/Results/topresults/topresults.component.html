@@ -1,0 +1,22 @@
+<div class="title">
+    <span>שלושת המובילים</span>
+</div>
+<div class="table-responsive-sm">
+    <table class="table table-borderedu table-striped">
+        <tr class="table-warning">
+            <th>מקום</th>
+            <th>תאריך משחק</th>
+            <th>כינוי שחקן</th>
+            <th>משך זמן</th>
+            <th>מהלכים</th>
+        </tr>
+        <tr *ngFor="let r of results, let i = index">
+            <td>{{i+1}}</td>
+            <td>{{r.takenDate| date:"dd/MM/yy"}}</td>
+            <td>{{r.playerName}}</td>
+            <td>{{r.duration}}</td>
+            <td>{{r.steps}}</td>
+        </tr>
+    </table><BR>
+    <a routerLink="/results">כל התוצאות</a> | <a routerLink="/memorygame" routerLinkActive="selectedpage">משחק חדש</a>
+</div>

@@ -1,0 +1,18 @@
+<div class="menuBackground">
+    <div class="row">       
+        <app-loginbar class="loginBar"></app-loginbar>
+        <app-menu></app-menu>
+        <app-logo></app-logo>
+        <div class="hamburger" (click)="clickOnHamburger()"><img src="../../../../assets/Images/General/hamburger.png" width="40px"></div>
+    </div>
+</div>
+<div *ngIf="hamburgerMenu" class="displayHamburger">
+        <div class="hamMenu">
+                <ul class="ulClass">
+                    <li><a routerLink="/contactus" (click)="clickOnHamburger()">צור קשר</a></li>
+                    <li><a routerLink="/feedbacks" (click)="clickOnHamburger()">הארות והמלצות</a></li>
+                    <li><a routerLink="/memorygame" (click)="clickOnHamburger()">משחק</a></li>
+                    <li><a routerLink="/home" (click)="clickOnHamburger()">ראשי</a></li>
+                </ul>
+            </div>
+</div>

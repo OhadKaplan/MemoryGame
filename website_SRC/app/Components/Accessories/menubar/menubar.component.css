@@ -1,0 +1,100 @@
+.menuBackground{
+    position: fixed;
+    top:0px;
+    right:0px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 65px;
+    background-color:#fcf467;
+    border-bottom:2px solid #fc9604;
+    z-index: 11;
+    direction: ltr;
+}
+app-menu{
+    right:250px;
+    position: fixed;
+    top:0;
+}
+
+.loginBar{
+    left:10px;
+    margin-left: 10px;
+}
+app-logo{
+    right:16px;
+    position: fixed;
+    top:0;
+    margin-top:5px; 
+}
+.hamburger{
+    visibility: hidden;
+}
+
+@media screen and (max-width: 850px) {
+    .loginBar{
+        visibility: hidden;
+        display: none;
+    }
+    .hamburger{
+        visibility: visible;
+        position: fixed;
+        text-align: center;
+        top:10px;
+        left:15px;
+        width: 43px;
+        z-index: 11;
+    }
+    .hamburger:hover{
+        border: #fc9604 2px solid;
+    }
+
+    .setLogo{
+        text-align: center;
+        border: 1px black solid;
+    }
+    .menu  {
+        position: relative;
+        right: initial;
+        top: initial;
+    }
+    /* Hamburger menu */
+    .displayHamburger{
+        position: absolute;
+        z-index: 10;
+        top:62px;
+        left: 0px;
+        
+    }
+    .ulClass {
+        
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color:#fcf467;
+        border:2px solid #fc9604;        
+        position: absolute;
+        width: 300px;
+        left: 0px;
+      }
+     
+      li a {
+        display: block;
+        color: rgb(86, 83, 83);
+        font-weight: bold;
+        text-align: right;
+        padding:  18px 20px;
+        text-decoration: none;
+      }
+      
+      li a:hover:not(.active) {
+        background-color: rgb(250, 203, 49);
+        border-top:1px solid #fc9604;
+      }
+      
+      .active {
+        background-color: rgb(245, 153, 14);
+        border-bottom:2px solid black;
+      }
+}

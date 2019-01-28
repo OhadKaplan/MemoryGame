@@ -1,0 +1,10 @@
+.row{
+    margin: 0 25px;
+}
+.meTitle{
+    text-align: right;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(3, 78, 6);
+    margin-bottom: 10px;
+}

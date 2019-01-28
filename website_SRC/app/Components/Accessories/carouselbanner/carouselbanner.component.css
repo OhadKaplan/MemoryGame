@@ -1,0 +1,11 @@
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+.carousel slide{
+    position: relative;
+    
+}
+.carousel-control-next-icon,.carousel-control-prev-icon{
+    z-index: 1;
+}

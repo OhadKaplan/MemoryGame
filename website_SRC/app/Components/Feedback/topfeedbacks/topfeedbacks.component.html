@@ -1,0 +1,20 @@
+<div class="title">
+    <span>כתבו עלינו לאחרונה</span>
+</div>
+
+<div class="table-responsive-sm">
+    <table class="table table-borderedu table-striped">
+        <tr class="table-warning">
+            <th>תאריך</th>
+            <th>כינוי שחקן</th>
+            <th> </th>
+        </tr>
+        <tr class="active" *ngFor="let f of feedbacks">
+            <td>{{f.createDate | date:"dd/MM/yy"}}</td>
+            <td>{{f.playerName}}</td>
+            <td class="text-right">{{f.text}}</td>
+        </tr>
+    </table><BR>
+    <a routerLink="/feedbacks">לכל התגובות <span *ngIf="!isLoggedin()" class="newFeedback">והוספת פרגון חדש </span> </a><app-feedbackpopup *ngIf="isLoggedin()"></app-feedbackpopup>
+
+</div>

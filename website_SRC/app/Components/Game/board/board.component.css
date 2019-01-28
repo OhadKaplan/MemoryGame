@@ -1,0 +1,47 @@
+main{
+    position: relative;
+    text-align: center;
+    padding:0 20;
+
+}
+.board{
+    text-align: center;
+    float: right;
+    margin: 50px calc(50% - 400px);
+    border: 1px solid;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 800px;
+}
+
+.boardRow {
+    float: right;
+    border-bottom: 1px solid;
+    width: 100%;
+}
+.boardRow:last-child {
+    border-bottom:none;
+}
+.boardCol{
+    float: right;
+    width: 25%;
+    border-left:1px solid; 
+}
+
+.boardCol:last-child {
+    border-left:none;
+}
+.boardCol img{
+   width: 100px;
+   height: 130px;
+}
+
+@media screen and (max-width: 991px){
+    .board[_ngcontent-c12] {
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin:0;
+     
+        width: 100%;
+    }
+}

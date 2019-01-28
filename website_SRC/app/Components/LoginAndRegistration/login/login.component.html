@@ -1,0 +1,26 @@
+<div [ngStyle]="{'visibility':showLogin}">
+    <div class="mainDiv">
+        <div class="text-right" *ngIf="!isLoggedin()" class="loginPopup">
+            <div><span class="close" (click)="closeLoginPopup()">&times;</span></div>
+            <BR>
+            <div>
+
+                <table>
+                    <tr>
+                        <td>שם משתמש:</td>
+                        <td><input type="text" #user name="user" ng-model="vm.user" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td>סיסמא:</td>
+                        <td><input type="password" #pass name="pass" (keyup.enter)="userLogin(user.value,pass.value)"
+                                valu="pass"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td class="text-left"><button (click)="userLogin(user.value,pass.value)">התחברות</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    

@@ -1,0 +1,7 @@
+<div class="container">
+<div *ngIf="gameStatus" class="status text-right">צעדים: {{gameSteps}}  -  זמן: {{displayTimer}} </div>
+<div *ngIf="!gameStatus && gameSteps>1" class="Result">צעדים: {{gameSteps}}  -  זמן: {{displayTimer}} <button class="btn btn-warning" (click)="sendResult()">תיעוד תוצאה</button></div>
+<div *ngIf="diplaySuccessMsg" class="SuccessMsg">
+    תוצאה נשמרה - למשחק חדש לחצו <a href="/memorygame" >כאן</a>, לתוצאות נוספות לחצו <a routerLink="/results" >כאן</a>
+</div>
+</div>

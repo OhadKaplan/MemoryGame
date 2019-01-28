@@ -1,0 +1,16 @@
+*{
+    margin: 5px;
+}
+div{
+    direction: rtl;
+}
+textarea{
+    direction: rtl;
+    text-align: right;
+    
+}
+.Message{
+    color:green;
+    font-weight: bold;
+    font-size:25px;
+}
