@@ -60,7 +60,7 @@ app-logo{
     }
     /* Hamburger menu */
     .displayHamburger{
-        position: absolute;
+        position: fixed;
         z-index: 10;
         top:62px;
         left: 0px;
